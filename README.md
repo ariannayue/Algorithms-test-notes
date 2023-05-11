@@ -61,10 +61,54 @@ def merge(left_half, right_half):
         else:
             sorted.append(right_half[j])
             j += 1
-    
+    #this while loop explains the behaviour of merge sort 
     sorted += left_half[i:] 
     sorted += right_half[j:]
     #adding the remaining values from either list in the case that one list is continuously smaller than the other (so the other list is continuously bigger, and we just add them)
     return sorted
+    
+   # Big - O - notation
+  Mathematical notation describing the limiting behaviour of a function as its input/parameter/argument approaches infinity
+   - other notations when analyzing complexity of an algorithm 
+   - Big Omega
+   - Big Theta
+   - Big O (tells us worst case scenario performance of our algorithm)
+  
+  Reasons for big O:
+    Algorithm proof
+  - proves that algorithm A is better than algorithm B by using Big-O
+    Measures performance, run-time, disk usage:
+  - our algorithms are designed to solve problems; however, reaching the solutions must not be feasible due to time or disk-space constraints
+     Mathematically formalizing our algorithms:
+  - different hardware will output different runtimes; therefore, we needed a formal mathematical analysis
+
+Common Big-O notations
+- Constant complexity (big O of (1))
+- Logarithmic complexity (big O of (log n))
+- Linear Complexity (big O of (n))
+- Linearithmic Complexity (big O of (n log n))
+- Quadratic Complexity (big O of n^2))
+
+MEANING OF ALL BIG O's:
+    Big O of (1)
+Constant Time algorithms: completes the execution in the same amount of time regardless of its input
+Examples:
+- accessing a data point in a list with a KNOWN index
+- given two numbers, reporting the sum
+    Big O of (log n):
+Logarithmic Time Algorithm:
+if N was the size of the input, the algorithm will take log(n) steps to solve the problem
+Most cases will use a log with a base of 2 (NOT TEN)
+When the input set is continuously divided by two, it is usually a logarithmic complexity algorithm
+Examples:
+- binary search
+    Big O of (n):
+ Linear Time Algorithm: The completion of the algorithm is directly proportional to the size of the input
+ 
+
+   
+   
+  
+
 
 
