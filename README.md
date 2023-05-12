@@ -104,7 +104,138 @@ Examples:
 - binary search
     Big O of (n):
  Linear Time Algorithm: The completion of the algorithm is directly proportional to the size of the input
+ Examples:
+ - Searching for an item in a list
+ - Searching a queue
+ - Adding two n-bit integers    
+    Big O of (n log n):
+Linearithmic Algorithm: The completion of the computation grows in a linear pattern with a rate of change of a logarithm
+Examples:
+- Heapsort
+- Mergesort
+
+    Big O of (n^2):
+Quadratic Complex Algorithms: performance is directly proportional to the square of the size of the input data set
+Examples:
+- Multiple two-n-digit numbers
+- bubble, insertion, selection sort
+
+    Big O's of lists and tuples complexities:
+- popping (just returning the last digit) is big O notation of 1
+- popping, returning a specific digit is a big O notation of n
+- appending a value is a big O complexity of 1
+- length is complexity of 1
+   # Recursion
+Recursion: a method to solve computational problem by relying on smaller instances of a solution to a given problem
+The logic is that if we have a base case that helps to solves the smaller instance, then the base case solution helps to solve the bigger version of the solution
+Basically the function calls itself again and again until the base case is hit
+- base case is the simplest solution for the simplest, smallest instance of the problem
+    Direct: f only calls f
+    Indirect: f calls g in which g calls f (can create longer chains)
+        - indirect recustion can be also reffered to as 'mutual recursions'
+
+  # Simplistic sorting algorithms 
  
+    Bubble sort: each larger digit is pushed to the right (like bubbles)
+    - A sorting algorithm that is based upon comparing pairs of values and swapping their places if necessary
+    Overall ideas: 
+    - Look at L[i] and if L[i-1], if they are not sorted, swap locations
+    - Reap as you increase i and until no swap occurs
+    
+    Insertion Sort:
+    - A sorting algorithm that iterates and sorts from the bottom one element at a time
+    Overall ideas:
+    - since a singleton list is already sorted, it will grow its 'sorted' list with the next value from the list
+    - It grabs the next value, REMOVES IT, and places it in the correct location
+    - It does this until the list is fully sorted
+   
+   def insertion_sort(arr):
+   
+    for i in range(1, len(arr)): #staring at second element
+        # save the current element in a variable called "key"
+        key = arr[i]
+        
+        # set a variable "j" to be the index of the element before the current element
+        j = i - 1
+        
+        # loop backwards through the array, moving elements up by one position
+        # until we find an element that is smaller than the key
+        while j >= 0 and key < arr[j] #saying that while current is smaller than then the value previous which is not sorted:
+            arr[j + 1] = arr[j] #here is where we swap 
+            j -= 1 #i increases, j decreases here
+        
+        # insert the key in its correct sorted position
+        arr[j + 1] = key
+    
+  
+    return arr
+
+   
+    Selection Sort:
+    - a sorting algorithm that uses two lists: sorted list and unsorted list. It brings the values to the sorted list in a sorted way
+    Overall Idea:
+    - at beginning, sorted list is empty and unsorted list is full
+    - choosing the smaller (or largest) value from the unsorted list and append it to the sorted list
+    - repeat until unsorted list is empty
+  
+    Stack and Queue:
+    - All STACK and QUEUE operations are big O (1) with space complexity being big O (n)
+    - Abstract data type; a mathematical model for data types. this is defined by its behaviour (semantics) from the point of view of a user, of the data, specificaly in terms of possible values, possible operations on data of this type, and behaviour of these operations
+        LIFO (last in first out) --> STACK
+    - container that holds multiple data
+    METHODS:
+    - push --> adds element
+    - pop --> removes most recent element
+    - peek --> looks at the most recent element
+        Applications:
+    - reverse word
+    - 'undo' feature
+    - backtracking
+    - language processing
+    - depth first search
+        FIFO (first in first out) --> QUEUE
+    - container holds multiple data (like stack)
+    METHODS:
+    - enqueue --> adds element
+    - dequeue --> removes and returns the first/earliest added elementd
+    - peek --> look at the first element
+        Applications:
+    - servering requests on a single shared resource (i/e printer, cpu tasks scheduling)
+    - call center phone systems uses queues
+    - breadth first search
+    - handling of interrupts in real-time systems
+    
+
+  # inefficiency of recursive calls
+  
+ Example being the fibonacci function recusion problem. We have the program running its recursive call time after time because it needs all of the previous values to find the n'th fibonacci number which it calculates many times with each call. This becomes redunant and slows down efficiency. We can reduce the number of function calls and redundant computations by using memory
+ 
+  # best, worst, average cases
+  
+  INSERTION SORT
+best case: O(n)
+- even though no swaps are done in the best case, we still need to compare
+in the best case, the list is already sorted, and no swaps are needs. In this case, the insertion sort only needs to compare each element once to its predecessor (previous value) and move on to the next element
+average case: O(n^2)
+- average case being that insertion sort needs to compare and possibly swap each element with its predecessor multiple times to find its correct possition in the sortes list. This results in a quadratic time complexity that grwos witht he square of the input size 
+worst case: O(n^2)
+- being that the list is in reverse order. all elements need to be swapped 
+
+SELECTION SORT
+best case: O (n^2)
+in the best case, selection sort needs to traverse the list only once to find the smallest element and swap it with the first element. However, if the list is already sorted, selection sort stilll needs to traverse the list to confirm that it is sorted, resulting in a quadratic time complexity
+average case: O (n^2)
+average case being that selection sort needs to traversethe list multiple times to find the smallest element and swap it with thenext unsorted element
+worst case: O (n^2)
+in the worst case, selection sort needs to traverse the list multiple timess to find the smallest element and swap it with the next unsorted element. If the list is sorted in reverse order, selection sort needs to make the maximum nuber of comparisons and swaps, leading to a quadratic complexity
+
+BUBBLE SORT:
+best case: O (n)
+- best case being that the list is already sorted, no swaps needs. However, we must stil traverse through to confirm it is sorted meaning a complexity of n
+average case: O (n^2)
+- average case being that bubble sort needs to compare and possibly swap each element with its neighour multiple times to sort the list (because we only swap 2 elements at a time)
+worst case: O (n^2)
+- worst case is that the list is in reverse order, and the bubble sort needs to make the max number of comparisons and swaps
 
    
    
